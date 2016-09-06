@@ -5,6 +5,7 @@
     "angular": "latest",
     "angular-resource": "latest",
     "angular-route": "latest",
-    "moment": "latest"
+    "moment": "latest",
+    "angular-devise": "latest"
   }
 }
