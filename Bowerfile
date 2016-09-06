@@ -1,0 +1,6 @@
+asset 'jquery'
+asset 'angular'
+asset 'angular-resource'
+asset 'angular-route'
+asset 'moment'
+asset 'angular'
