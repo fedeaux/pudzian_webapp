@@ -9,7 +9,8 @@ class DashboardController < ApplicationController
 
   private
   def template_name
-    if File.exists? Rails.root.join 'app', 'views', params[:name]+'.html.erb'
+    path = Rails.root.join('app', 'views', params[:name]).to_s.gsub(/\/$/, '')
+    if File.exists?(path+'.html.erb') or File.exists?(path+'.html.haml')
       params[:name]
     else
       parts = params[:name].split('/')
