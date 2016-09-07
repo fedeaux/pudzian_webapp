@@ -8,6 +8,9 @@ angular.module('PudzianApp').config ($routeProvider, $locationProvider) ->
   ).when('/exercises',
     templateUrl: '/templates/exercises/index'
     controller: 'ExercisesController as exercises_ctrl'
+  ).when('/exercises/:id',
+    templateUrl: '/templates/exercises/show'
+    controller: 'ExerciseController as exercise_ctrl'
   )
 
   # .otherwise ->

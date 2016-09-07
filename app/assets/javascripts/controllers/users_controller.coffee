@@ -6,7 +6,6 @@ class UsersController
     }
 
     @scope.$on 'devise:login', (event, currentUser) =>
-
     @scope.$on 'devise:new-session', (event, currentUser) =>
       # user logged in by Auth.login({...})
 
