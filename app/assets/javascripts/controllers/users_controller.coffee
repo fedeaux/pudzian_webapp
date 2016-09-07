@@ -12,7 +12,7 @@ class UsersController
 
   login: ->
     @Auth.login(@credentials, {}).then ((user) =>
-      @location.path '/profile'
+      @location.path '/exercises'
     ), (error) ->
 
 UsersController.$inject = ['$scope', '$location', 'Auth']
