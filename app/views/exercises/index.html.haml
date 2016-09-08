@@ -1,8 +1,19 @@
 %h1 Exercises
 
 %form{ role: :form }
-  .form-group
+  .input-group.form-group
     %input.form-control{ type: :text, ng_model: 'exercises_ctrl.filter', placeholder: 'Filter' }
+    .input-group-btn
+      .btn.btn-default
+        %span.glyphicon.glyphicon-remove-circle{ ng_show: 'exercises_ctrl.filter != ""', ng_click: 'exercises_ctrl.resetFilter()' }
+        %span.glyphicon.glyphicon-search{ ng_hide: 'exercises_ctrl.filter != ""' }
+
+  .form-group
+    .dropdown-item.btn.btn-sm.btn-default{ ng_repeat: 'category_name in exercises_ctrl.categories',
+                                           ng_click: 'exercises_ctrl.toggleOnFilter(category_name)',
+                                           ng_class: '{ "btn-default": !exercises_ctrl.onFilter(category_name),
+                                                        "btn-success": exercises_ctrl.onFilter(category_name),
+                                                      }' } {{ category_name }}
 
   .list-group#exercise-list
     = link_to '#', class: 'list-group-item',

@@ -11,6 +11,15 @@ angular.module('PudzianApp').factory 'Exercise', ($resource, ExerciseCategory) -
           @[name] = default_value
 
       @parseAssociations()
+      @setMatchableString()
+
+    setMatchableString: ->
+      strings = [@name.toLowerCase()]
+
+      for category in @categories
+        strings.push category.name.toLowerCase()
+
+      @matchable_string = strings.join ' '
 
     isPersisted: ->
       !! @id
