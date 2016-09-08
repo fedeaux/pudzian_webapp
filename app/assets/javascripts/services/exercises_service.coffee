@@ -10,7 +10,8 @@ angular.module('PudzianApp').factory 'ExerciseService', ($resource, $http) ->
         complete data['exercises'] if complete
 
     get: (model_id, complete) ->
-      new @service().$get id: model_id, @onServerResponse complete
+      new @service().$get id: model_id, (data) ->
+        complete data['exercise'] if complete
 
     onServerResponse: (complete) ->
       (response) ->
