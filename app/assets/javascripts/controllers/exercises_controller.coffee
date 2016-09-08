@@ -4,6 +4,7 @@ class ExercisesController
 
     @service = new @ExerciseService ->
     @loadExercises()
+
     @filter = ''
 
   loadExercises: ->

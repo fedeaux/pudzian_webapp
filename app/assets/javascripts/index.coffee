@@ -2,11 +2,11 @@
   db_day: 'YYYY-MM-DD'
   pretty_day: 'ddd, MMM Do'
 
-PudzianApp = angular.module('PudzianApp', ['ngResource', 'ngRoute', 'Devise'])
-  .config (AuthProvider) ->
-    AuthProvider.loginPath 'http://localhost:3001/auth/sign_in'
-    AuthProvider.loginMethod 'POST'
-    AuthProvider.resourceName null
+PudzianApp = angular.module('PudzianApp', ['ngResource', 'ui.router', 'ng-token-auth'])
+  .config ($authProvider) ->
+    $authProvider.configure
+      apiUrl: 'http://localhost:3001/'
+      storage: 'localStorage'
 
 init = ->
   angular.bootstrap( $('body'), ['PudzianApp'] )

@@ -1,14 +1,14 @@
 class ExerciseController
-  constructor: (@scope, @routeParams, @ExerciseService, @Exercise) ->
+  constructor: (@scope, @stateParams, @ExerciseService, @Exercise) ->
     window.exercises_ctrl = @
 
     @service = new @ExerciseService ->
-    @loadExercise @routeParams.id
+    @loadExercise @stateParams.id
 
   loadExercise: (exercise_id) ->
     @exercise = {}
     @service.get exercise_id, (exercise_attributes) =>
       console.log exercise_attributes
 
-ExerciseController.$inject = ['$scope', '$routeParams', 'ExerciseService', 'Exercise']
+ExerciseController.$inject = ['$scope', '$stateParams', 'ExerciseService', 'Exercise']
 angular.module('PudzianApp').controller 'ExerciseController', ExerciseController

@@ -3,9 +3,10 @@
   "dependencies": {
     "jquery": "latest",
     "angular": "latest",
-    "angular-resource": "latest",
-    "angular-route": "latest",
+    "angular-resource": "1.5.3",
+    "angular-ui-router": "latest",
     "moment": "latest",
-    "angular-devise": "latest"
+    "angular-cookie": "latest",
+    "ng-token-auth": "latest"
   }
 }

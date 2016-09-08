@@ -1,18 +1,15 @@
 class UsersController
-  constructor: (@scope, @location, @Auth) -> #, @ResourceService, @User
+  constructor: (@scope, @state, @auth) -> #, @ResourceService, @User
     @credentials = {
-      email: null,
-      password: null
+      email: 'phec06@gmail.com',
+      password: 'senhanova123'
     }
 
-    @scope.$on 'devise:login', (event, currentUser) =>
-    @scope.$on 'devise:new-session', (event, currentUser) =>
-      # user logged in by Auth.login({...})
-
   login: ->
-    @Auth.login(@credentials, {}).then ((user) =>
-      @location.path '/exercises'
-    ), (error) ->
+    @auth.submitLogin(@credentials).then((user) =>
+      @state.go 'auth.exercises'
+    ).catch (error) ->
+      console.log error
 
-UsersController.$inject = ['$scope', '$location', 'Auth']
+UsersController.$inject = ['$scope', '$state', '$auth']
 angular.module('PudzianApp').controller 'UsersController', UsersController
