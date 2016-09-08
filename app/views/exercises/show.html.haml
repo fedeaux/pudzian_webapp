@@ -1,0 +1,9 @@
+#exercises-show
+  %h1
+    = link_to '#', class: 'btn btn-default btn-sm', ng_href: '#/exercises' do
+      %span.glyphicon.glyphicon-menu-left
+
+    {{ exercise_ctrl.exercise.name }}
+
+  .categories
+    %span.label.label-default{ ng_repeat: 'category in exercise_ctrl.exercise.categories' } {{ category.name }}

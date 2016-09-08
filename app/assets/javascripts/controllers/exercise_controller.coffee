@@ -8,7 +8,7 @@ class ExerciseController
   loadExercise: (exercise_id) ->
     @exercise = {}
     @service.get exercise_id, (exercise_attributes) =>
-      console.log exercise_attributes
+      @exercise = new @Exercise exercise_attributes
 
 ExerciseController.$inject = ['$scope', '$stateParams', 'ExerciseService', 'Exercise']
 angular.module('PudzianApp').controller 'ExerciseController', ExerciseController

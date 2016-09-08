@@ -17,6 +17,9 @@
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-cookie/angular-cookie
 //= require ng-token-auth/dist/ng-token-auth
+//= require angular-animate/angular-animate
+//= require angular-touch/angular-touch
+//= require angular-bootstrap/ui-bootstrap
 //= require bootstrap/dist/js/bootstrap.min
 //= require moment/min/moment.min
 //= require turbolinks
