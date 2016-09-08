@@ -14,8 +14,9 @@
 //= require jquery_ujs
 //= require angular/angular
 //= require angular-resource/angular-resource
-//= require angular-route/angular-route
-//= require angular-devise/lib/devise-min
+//= require angular-ui-router/release/angular-ui-router
+//= require angular-cookie/angular-cookie
+//= require ng-token-auth/dist/ng-token-auth
 //= require bootstrap/dist/js/bootstrap.min
 //= require moment/min/moment.min
 //= require turbolinks

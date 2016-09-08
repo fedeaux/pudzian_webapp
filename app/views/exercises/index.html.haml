@@ -1,0 +1,13 @@
+%h1 Exercises
+
+%form{ role: :form }
+  .form-group
+    %input.form-control{ type: :text, ng_model: 'exercises_ctrl.filter', placeholder: 'Filter' }
+
+  .list-group#exercise-list
+    = link_to '#', class: 'list-group-item',
+                   ng_repeat: 'exercise in exercises_ctrl.displayable_exercises',
+                   ng_href: '#/exercises/{{ exercise.id }}',
+                   ng_show: 'exercises_ctrl.matchFilter(exercise)' do
+
+      {{ exercise.name }}
