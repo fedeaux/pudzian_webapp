@@ -1,5 +1,5 @@
 class UsersController
-  constructor: (@scope, @state, @auth) -> #, @ResourceService, @User
+  constructor: (@scope, @state, @auth, @timeout) ->
     @credentials = {
       email: 'phec06@gmail.com',
       password: 'senhanova123'
@@ -7,9 +7,15 @@ class UsersController
 
   login: ->
     @auth.submitLogin(@credentials).then((user) =>
-      @state.go 'auth.exercises'
+      @state.go 'app.exercises'
     ).catch (error) ->
       console.log error
 
-UsersController.$inject = ['$scope', '$state', '$auth']
+  logout: ->
+    @auth.signOut().then( =>
+      @timeout =>
+        @state.go 'login'
+    )
+
+UsersController.$inject = ['$scope', '$state', '$auth', '$timeout']
 angular.module('PudzianApp').controller 'UsersController', UsersController
