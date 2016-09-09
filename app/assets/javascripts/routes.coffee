@@ -1,24 +1,45 @@
 angular.module('PudzianApp')
 .config ($stateProvider) ->
   $stateProvider.state('login',
-    url: '/'
-    templateUrl: '/templates/devise/sessions/new'
-    controller: 'UsersController as users_ctrl'
+    url: ''
+    views:
+      dashboard:
+        templateUrl: '/templates/devise/sessions/new'
+        controller: 'UsersController as users_ctrl'
 
-  ).state('auth',
+    resolve:
+      auth: ($auth, $state) ->
+        $auth.validateUser().then( ->
+          $state.go 'app.exercises'
+        ).catch ->
+
+  ).state('login.with_slaash',
+    url: '/'
+
+  ).state('app',
     abstract: true
     template: '<ui-view/>'
     resolve:
-      auth: ($auth) ->
-        $auth.validateUser()
+      app: ($auth, $state) ->
+        $auth.validateUser().catch ->
+          $state.go 'login'
 
-  ).state('auth.exercises',
+    views:
+      menu:
+        templateUrl: '/templates/menu/index'
+
+  ).state('app.exercises',
     url: '/exercises'
-    templateUrl: '/templates/exercises/index'
-    controller: 'ExercisesController as exercises_ctrl'
+    views:
+      'dashboard@':
+        templateUrl: '/templates/exercises/index'
+        controller: 'ExercisesController as exercises_ctrl'
 
-  ).state('auth.exercise',
+  ).state('app.exercise',
     url: '/exercises/:id'
-    templateUrl: '/templates/exercises/show'
-    controller: 'ExerciseController as exercise_ctrl'
+    views:
+      'dashboard@':
+        templateUrl: '/templates/exercises/show'
+        controller: 'ExerciseController as exercise_ctrl'
+
   )
