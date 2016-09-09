@@ -1,0 +1,31 @@
+%form{ class: '', role: 'form' }
+  %h5{ ng_hide: 'strenght_ctrl.form_exercise_strenght_test.isPersisted()' }
+    Creating Strenght Test for {{ exercise_ctrl.exercise.name }}
+
+  .form-group
+    %label Unit
+    %input{ type: :text, class: 'form-control',
+            ng_model: "strenght_ctrl.form_exercise_strenght_test.unit" }
+
+  .form-group
+    %label Precision
+    %input{ type: :number, class: 'form-control',
+            ng_model: "strenght_ctrl.form_exercise_strenght_test.precision", step: 0.5 }
+
+  .form-group
+    %table.table.table-condensed
+      %thead
+        %th Repetitions
+        %th Weight ({{ strenght_ctrl.form_exercise_strenght_test.unit }})
+      %tbody
+        %tr.mr-weights-entry{ ng_repeat: '(repetitions, weight) in strenght_ctrl.form_exercise_strenght_test.mr_weights' }
+          %td {{ repetitions }}
+          %td
+            %input{type: :number,
+                   class: 'form-control',
+                   ng_model: "strenght_ctrl.form_exercise_strenght_test.mr_weights[repetitions]",
+                   ng_attr_step: '{{ strenght_ctrl.form_exercise_strenght_test.precision }}' }
+
+  .btn-group.form-group
+    .btn.btn-default.btn-sm{ ng_click: 'strenght_ctrl.cancelEdit()' } Cancel
+    .btn.btn-primary.btn-sm{ ng_click: 'strenght_ctrl.save()' } Save

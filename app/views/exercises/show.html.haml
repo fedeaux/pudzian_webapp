@@ -7,3 +7,6 @@
 
   .categories
     %span.label.label-default{ ng_repeat: 'category in exercise_ctrl.exercise.categories' } {{ category.name }}
+
+  %hr
+  = render template: '/strenght_tests/show'
