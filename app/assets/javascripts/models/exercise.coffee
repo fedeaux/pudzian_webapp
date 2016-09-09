@@ -28,6 +28,7 @@ angular.module('PudzianApp').factory 'Exercise', ($resource, ExerciseCategory) -
       attr =
         id: null
         name: null
+        has_strenght_test: false
 
       unless skip_associations
         attr.categories = []
