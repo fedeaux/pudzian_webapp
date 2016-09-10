@@ -5,7 +5,7 @@
 PudzianApp = angular.module('PudzianApp', ['ngResource', 'ui.router', 'ng-token-auth', 'ui.bootstrap'])
   .config ($authProvider) ->
     $authProvider.configure
-      apiUrl: 'http://localhost:3001/'
+      apiUrl: config.api_url
       storage: 'localStorage'
 
 init = ->

@@ -4,8 +4,13 @@
     %title PudzianWebApp
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+
+    :coffeescript
+      window.config = { api_url: "#{ENV['API_URL']}" }
+
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
+
     = render 'shared/menu'
     = yield

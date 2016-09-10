@@ -1,7 +1,7 @@
 angular.module('PudzianApp').factory 'ResourceService', ($resource, $http) ->
   class ResourceService
     constructor: (@errorHandler, @singular_name, @plural_name) ->
-      @service = $resource("http://localhost:3001/#{@plural_name}/:id", {}, {
+      @service = $resource("#{config.api_url}#{@plural_name}/:id", {}, {
        'update': { method: 'PUT'}
       })
 

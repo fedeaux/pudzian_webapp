@@ -1,7 +1,7 @@
 angular.module('PudzianApp').factory 'ExerciseService', ($resource, $http) ->
   class ExerciseService
     constructor: (@errorHandler) ->
-      @service = $resource("http://localhost:3001/exercises/:id", {}, {
+      @service = $resource("#{config.api_url}exercises/:id", {}, {
        'update': { method: 'PUT'}
       })
 
