@@ -1,5 +1,5 @@
-angular.module('PudzianApp').factory 'Exercise', ($resource, ExerciseCategory) ->
-  class Exercise
+angular.module('PudzianApp').factory 'ExerciseStrenghtTest', ($resource) ->
+  class ExerciseStrenghtTest
     constructor: (attributes = {}) ->
       @setAttributes attributes
 
@@ -10,16 +10,7 @@ angular.module('PudzianApp').factory 'Exercise', ($resource, ExerciseCategory) -
         else
           @[name] = default_value
 
-      @parseAssociations()
-      @setMatchableString()
-
-    setMatchableString: ->
-      strings = [@name.toLowerCase()]
-
-      for category in @categories
-        strings.push category.name.toLowerCase()
-
-      @matchable_string = strings.join ' '
+      @parseNumbers()
 
     isPersisted: ->
       !! @id
@@ -27,17 +18,15 @@ angular.module('PudzianApp').factory 'Exercise', ($resource, ExerciseCategory) -
     defaultAttributes: (skip_associations = false) ->
       attr =
         id: null
-        name: null
-        has_strenght_test: false
-
-      unless skip_associations
-        attr.categories = []
+        exercise_id: null
+        mr_weights: null
+        precision: null
+        unit: null
 
       attr
 
-    parseAssociations: ->
-      if @categories.length > 0 and @categories[0]
-        @categories = (new ExerciseCategory(category) for category in @categories)
+    parseNumbers: ->
+      @precision = parseFloat @precision
 
     attributes: ->
       attr = {}
