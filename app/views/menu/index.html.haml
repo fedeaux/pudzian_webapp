@@ -1,0 +1,43 @@
+%nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .navbar-brand Pudzian
+
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => "#/exercises"} Exercises
+        -# %li
+        -#   %a{:href => "#/paths"} Paths
+        -# %li.dropdown
+        -#   %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+        -#     Dropdown
+        -#     %span.caret
+        -#   %ul.dropdown-menu
+        -#     %li
+        -#       %a{:href => "#"} Action
+        -#     %li
+        -#       %a{:href => "#"} Another action
+        -#     %li
+        -#       %a{:href => "#"} Something else here
+        -#     %li.divider{:role => "separator"}
+        -#     %li.dropdown-header Nav header
+        -#     %li
+        -#       %a{:href => "#"} Separated link
+        -#     %li
+        -#       %a{:href => "#"} One more separated link
+
+      %ul.nav.navbar-nav.navbar-right{ ng_controller: 'UsersController as users_ctrl' }
+        %li
+          %a{ href: "#", ng_click: 'users_ctrl.logout()'}
+            Logout
+            %span.sr-only (logout)
+        -# %li
+        -#   %a{:href => "../navbar-static-top/"} Static top
+        -# %li
+        -#   %a{:href => "../navbar-fixed-top/"} Fixed top

@@ -1,0 +1,16 @@
+.strenght-test{ ng_controller: 'ExerciseStrenghtTestController as strenght_ctrl'}
+  %h4 Strenght Test
+
+  %div{ ng_show: 'strenght_ctrl.form_exercise_strenght_test' }
+    = render 'strenght_tests/form'
+
+  .mr-weights-display{ ng_hide: 'strenght_ctrl.form_exercise_strenght_test' }
+    .mr-weight-display{ ng_repeat: '(repetitions, weight) in strenght_ctrl.exercise_strenght_test.mr_weights' }
+      .repetitions {{ repetitions }}
+      .multiplier x
+      .weight {{ (weight | number) || '?' }}{{ strenght_ctrl.exercise_strenght_test.unit }}
+
+    .clear
+
+  %div{ ng_hide: 'strenght_ctrl.form_exercise_strenght_test' }
+    .btn.btn-default{ ng_click: 'strenght_ctrl.setForm()' } Edit
