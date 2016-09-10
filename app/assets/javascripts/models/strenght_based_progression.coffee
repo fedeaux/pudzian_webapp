@@ -1,6 +1,7 @@
 angular.module('PudzianApp').factory 'StrenghtBasedProgression', ($resource) ->
   class StrenghtBasedProgression
     constructor: (attributes = {}) ->
+      window.progression_ctrl = @
       @setAttributes attributes
 
     setAttributes: (attributes, skip_associations = false) ->
@@ -22,6 +23,7 @@ angular.module('PudzianApp').factory 'StrenghtBasedProgression', ($resource) ->
       unless skip_associations
         attr.repetitions_signature = {}
         attr.exercise = {}
+        attr.repetitions_with_weights = []
 
       attr
 
