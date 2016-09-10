@@ -1,0 +1,23 @@
+.strenght-based-progressions{ ng_controller: 'StrenghtBasedProgressionsController as progressions_ctrl'}
+  %h4 Strenght-Based Progressions
+
+  .alert.alert-info.alert-sm{ role: 'alert', ng_show: 'progressions_ctrl.displayable_strenght_based_progressions.length == 0' }
+    No Strenght Based Progressions for this exercises
+
+  .alert.alert-warning.alert-sm{ role: 'alert', ng_hide: 'progressions_ctrl.exercise_has_strenght_test' }
+    You need to fill the Strenght Test for this exercise before adding progressions
+
+  .progressions-signatures-display{ ng_hide: 'progressions_ctrl.form_strenght_based_progression' }
+    .list-group
+      = link_to '#', class: 'list-group-item',
+                     ng_repeat: 'strenght_based_progression in progressions_ctrl.displayable_strenght_based_progressions',
+                     ng_href: '#/progression/{{ strenght_based_progression.id }}' do
+
+        {{ strenght_based_progression.repetitions_signature.signature }}
+
+  .btn.btn-default{ ng_click: 'progressions_ctrl.setBlankForm()',
+                    ng_show: 'progressions_ctrl.exercise_has_strenght_test && !progressions_ctrl.form_strenght_based_progression' }
+    Add
+
+  %div{ ng_show: 'progressions_ctrl.form_strenght_based_progression'}
+    = render 'strenght_based_progressions/form'

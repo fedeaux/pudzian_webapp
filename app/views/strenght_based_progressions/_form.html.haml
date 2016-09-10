@@ -1,0 +1,12 @@
+%form{ class: '', role: 'form' }
+  %h5{ ng_hide: 'progressions_ctrl.form_strenght_based_progression.isPersisted()' }
+    Creating Strenght-Based Progression for {{ exercise_ctrl.exercise.name }}
+
+  .form-group
+    %label Repetitions Signature
+    %input{ type: :text, class: 'form-control',
+            ng_model: "progressions_ctrl.form_strenght_based_progression.string_repetitions_signature" }
+
+  .btn-group.form-group
+    .btn.btn-default.btn-sm{ ng_click: 'progressions_ctrl.cancelEdit()' } Cancel
+    .btn.btn-primary.btn-sm{ ng_click: 'progressions_ctrl.save()' } Save
