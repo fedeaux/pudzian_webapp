@@ -1,5 +1,7 @@
 class ExerciseStrenghtTestController
-  constructor: (@scope, @stateParams, @ExerciseStrenghtTestService, @ExerciseStrenghtTest) ->
+  constructor: (@scope, @rootScope, @timeout, @stateParams,
+                @ExerciseStrenghtTestService, @ExerciseStrenghtTest) ->
+
     window.strenght_ctrl = @
     @service = new @ExerciseStrenghtTestService ->
     @exercise_id = @stateParams.id
@@ -28,6 +30,9 @@ class ExerciseStrenghtTestController
   setExerciseStrenghtTest: (exercise_strenght_test_attributes) ->
     @exercise_strenght_test = new @ExerciseStrenghtTest exercise_strenght_test_attributes
 
+    if @exercise_strenght_test.isPersisted()
+      @rootScope.$broadcast 'ExerciseStrenghtTestController:ExerciseStrenghtTestCreated'
+
   save: ->
     if @form_exercise_strenght_test.isPersisted()
       @service.update @form_exercise_strenght_test, (response) =>
@@ -39,5 +44,7 @@ class ExerciseStrenghtTestController
         @setExerciseStrenghtTest response.exercise_strenght_test
         @clearForm()
 
-ExerciseStrenghtTestController.$inject = ['$scope', '$stateParams', 'ExerciseStrenghtTestService', 'ExerciseStrenghtTest']
+ExerciseStrenghtTestController.$inject = ['$scope', '$rootScope', '$timeout', '$stateParams',
+  'ExerciseStrenghtTestService', 'ExerciseStrenghtTest']
+
 angular.module('PudzianApp').controller 'ExerciseStrenghtTestController', ExerciseStrenghtTestController
