@@ -4,6 +4,7 @@
     %title PudzianWebApp
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %meta{:content => "width=device-width, height=device-height, user-scalable=no", :name => "viewport"}/
 
     :coffeescript
       window.config = { api_url: "#{ENV['API_URL']}" }
