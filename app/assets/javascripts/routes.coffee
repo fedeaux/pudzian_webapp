@@ -41,4 +41,11 @@ angular.module('PudzianApp')
         templateUrl: '/templates/exercises/show'
         controller: 'ExerciseController as exercise_ctrl'
 
+  ).state('app.strenght_based_progression',
+    url: '/strenght_based_progression/:id'
+    views:
+      'dashboard@':
+        templateUrl: '/templates/strenght_based_progressions/show'
+        controller: 'StrenghtBasedProgressionController as progression_ctrl'
+
   )

@@ -21,6 +21,7 @@ angular.module('PudzianApp').factory 'StrenghtBasedProgression', ($resource) ->
 
       unless skip_associations
         attr.repetitions_signature = {}
+        attr.exercise = {}
 
       attr
 

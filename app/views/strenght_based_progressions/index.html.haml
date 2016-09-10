@@ -11,7 +11,7 @@
     .list-group
       = link_to '#', class: 'list-group-item',
                      ng_repeat: 'strenght_based_progression in progressions_ctrl.displayable_strenght_based_progressions',
-                     ng_href: '#/progression/{{ strenght_based_progression.id }}' do
+                     ng_href: '#/strenght_based_progression/{{ strenght_based_progression.id }}' do
 
         {{ strenght_based_progression.repetitions_signature.signature }}
 

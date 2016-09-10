@@ -1,0 +1,7 @@
+#strenght-based-progression-show
+  %h1
+    = link_to '#', class: 'btn btn-default btn-sm', ng_href: '#/exercises/{{ progression_ctrl.strenght_based_progression.exercise.id }}' do
+      %span.glyphicon.glyphicon-menu-left
+
+    {{ progression_ctrl.strenght_based_progression.exercise.name }}
+    .sub-header {{ progression_ctrl.strenght_based_progression.repetitions_signature.signature }}
