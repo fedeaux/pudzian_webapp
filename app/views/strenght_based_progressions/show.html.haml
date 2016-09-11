@@ -12,7 +12,7 @@
         %button.btn.btn-success.btn-sub{ type: "button", ng_click: 'progression_ctrl.decreaseStrenghtLevel()' }
           %span.glyphicon.glyphicon-minus
 
-      .form-control {{ progression_ctrl.strenght_level * 100 }}%
+      .form-control.strenght-level-percentage-display {{ progression_ctrl.strenght_level | percentage }}
 
       %span.input-group-btn
         %button.btn.btn-success.btn-add{ type: "button", ng_click: 'progression_ctrl.increaseStrenghtLevel()'}
