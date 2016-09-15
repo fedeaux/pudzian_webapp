@@ -1,0 +1,30 @@
+.from-group
+  %label Strenght Level
+  .input-group
+    %span.input-group-btn
+      %button.btn.btn-success.btn-sub{ type: "button", ng_click: 'steps_ctrl.form_step.decreaseStrenghtLevel()' }
+        %span.glyphicon.glyphicon-minus
+
+    .form-control.strenght-level-percentage-display {{ steps_ctrl.form_step.strenght_level | percentage }}
+
+    %span.input-group-btn
+      %button.btn.btn-success.btn-add{ type: "button", ng_click: 'steps_ctrl.form_step.increaseStrenghtLevel()'}
+        %span.glyphicon.glyphicon-plus
+
+%br
+
+.mr-weights-display
+  .mr-weight-display{ ng_repeat: 'pair in steps_ctrl.form_step.new_planned_set' }
+
+    .repetitions {{ pair[0] }}
+    .multiplier x
+    .weight {{ (pair[1] | number) || '?' }}{{ progression_ctrl.exercise_strenght_test.unit }}
+  .clear
+
+.form-group
+  %label What was done
+  = text_field_tag '', '', ng_model: 'steps_ctrl.form_step.done_set', class: 'form-control'
+
+.form-group
+  .btn.btn-primary{ ng_show: 'steps_ctrl.form_step.done_set.length > 0',
+                    ng_click: 'steps_ctrl.save()'} Save
