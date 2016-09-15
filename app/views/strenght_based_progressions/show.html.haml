@@ -5,26 +5,4 @@
 
     {{ progression_ctrl.strenght_based_progression.exercise.name }}
 
-  .from-group
-    %label Strenght Level
-    .input-group
-      %span.input-group-btn
-        %button.btn.btn-success.btn-sub{ type: "button", ng_click: 'progression_ctrl.decreaseStrenghtLevel()' }
-          %span.glyphicon.glyphicon-minus
-
-      .form-control.strenght-level-percentage-display {{ progression_ctrl.strenght_level | percentage }}
-
-      %span.input-group-btn
-        %button.btn.btn-success.btn-add{ type: "button", ng_click: 'progression_ctrl.increaseStrenghtLevel()'}
-          %span.glyphicon.glyphicon-plus
-
-  %br
-
-  .mr-weights-display
-    .mr-weight-display{ ng_repeat: 'pair in progression_ctrl.mutable_repetitions_with_weights' }
-
-      .repetitions {{ pair[0] }}
-      .multiplier x
-      .weight {{ (pair[1] | number) || '?' }}{{ progression_ctrl.exercise_strenght_test.unit }}
-
-    .clear
+  = render 'strenght_based_progression_steps/index'

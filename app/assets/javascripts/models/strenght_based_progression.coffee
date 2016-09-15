@@ -1,7 +1,6 @@
 angular.module('PudzianApp').factory 'StrenghtBasedProgression', ($resource) ->
   class StrenghtBasedProgression
     constructor: (attributes = {}) ->
-      window.progression_ctrl = @
       @setAttributes attributes
 
     setAttributes: (attributes, skip_associations = false) ->

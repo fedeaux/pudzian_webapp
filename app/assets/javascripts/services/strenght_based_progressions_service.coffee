@@ -1,5 +1,5 @@
 angular.module('PudzianApp').factory 'StrenghtBasedProgressionsService', ($resource, $http, ResourceService) ->
-  class ExerciseStrenghtTestService extends ResourceService
+  class StrenghtBasedProgressionsService extends ResourceService
     constructor: (errorHandler) ->
       super errorHandler, 'strenght_based_progression', 'strenght_based_progressions'
 
