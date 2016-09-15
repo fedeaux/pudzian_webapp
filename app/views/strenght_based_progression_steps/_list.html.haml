@@ -1,0 +1,17 @@
+.strenght-based-progression-step.container-fluid{ ng_repeat: "step in steps_ctrl.displayable_steps | orderBy: '-done_at' " }
+  .row.step-info
+    .col-xs-5
+      .done-at {{ step.done_at | days_ago }}
+      with
+      .strenght-level {{ step.strenght_level | percentage }}
+
+    .col-xs-6
+      .planned-set {{ step.planned_set }}
+
+    .col-xs-1{ ng_show: 'step.done_today' }
+      .btn.btn-xs{ ng_click: 'steps_ctrl.delete(step)' }
+        %span.glyphicon.glyphicon-trash
+
+  .row
+    .col-xs-12
+      .done-set {{ step.done_set }}
