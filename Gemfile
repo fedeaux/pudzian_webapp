@@ -5,6 +5,7 @@ gem 'puma', '~> 3.0'
 
 # Utility
 gem "bower-rails", "~> 0.10.0"
+gem 'dotenv-rails'
 
 # Frontend
 gem 'jquery-rails'
@@ -24,7 +25,6 @@ gem "pry"
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'dotenv-rails'
   gem 'spring'
   gem 'log4r'
   gem "rspec-rails"
@@ -34,6 +34,12 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console'
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails-console'
 end
 
 group :production do
