@@ -27,6 +27,7 @@ angular.module('PudzianApp')
     views:
       menu:
         templateUrl: '/templates/menu/index'
+
   ).state('app.exercises',
     url: '/exercises'
     views:
